@@ -1,0 +1,5 @@
+sudo apt-get install libmysqlclient-dev
+pip3 install mysql
+sudo apt-get -y install mysql-server
+sudo /etc/init.d/mysql start
+pip3 install mysql-connector
