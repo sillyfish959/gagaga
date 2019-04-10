@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 import requests
 from bs4 import BeautifulSoup
 
@@ -17,7 +19,7 @@ class instrument:
     req = session.get (url, headers=headers)
     bsObj = BeautifulSoup(req.text, 'html.parser')
     (key,value,dummy)=bsObj.prettify().split('"')
-    (name,open,previousClose,price,high,low,buy,sell,volume,amount,b1v,b1,b2v,b2,b3v,b3,b4v,b4,b5v,b5,s1v,s1,s2v,s3,s3v,s3,s4v,s4,s5v,s5,date,time,dummy)=value.split(',')
+    (name,open,previousClose,price,high,low,buy,sell,volume,amount,b1v,b1,b2v,b2,b3v,b3,b4v,b4,b5v,b5,s1v,s1,s2v,s3,s3v,s3,s4v,s4,s5v,s5,date,time,status)=value.split(',')
     self.name = name
     self.open = open
     self.previousClose = float(previousClose)
@@ -50,6 +52,7 @@ class instrument:
     self.s5 = s5
     self.date = date
     self.time = time
+    self.status = status
     self.change = (float(price)/float(previousClose)-1)*100
 
 
