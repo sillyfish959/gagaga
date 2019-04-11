@@ -10,7 +10,7 @@ class instrument:
     self.id = id
 
   def displaySimple(self):
-      print ('{:^6} {:8.2f} {:6.2f}%'.format(self.id, self.previousClose, self.change))
+      print ('{:^6} {:8.2f} {:6.2f}%'.format(self.id, self.price, self.change))
 
   def query(self):
     session = requests.session()
@@ -23,7 +23,7 @@ class instrument:
     self.name = name
     self.open = open
     self.previousClose = float(previousClose)
-    self.price = price
+    self.price = float(price)
     self.high = high
     self.low = low
     self.buy = buy

@@ -1,28 +1,23 @@
 
-u are running apt-get inside of Cloud Shell. Note that your Cloud Shell
+You are running apt-get inside of Cloud Shell. Note that your Cloud Shell
 machine is ephemeral and no system-wide change will persist beyond session end. 
 
 You can customize your environment to permanently include this package by
 updating your environment at https://cloud.google.com/console/cloudshell/environment/view.
 
 
-
-
-netstat -lnp | grep 3306
-
-
-
 correct---------working!!
-sudo apt-get install libmysqlclient-dev
-pip3 install mysql
-pip3 install mysql.connector
 
+sudo apt-get install libmysqlclient-dev
+sudo apt-get -y install mysql-server
+pip3 install mysql
+pip3 install mysql_connector
+
+sudo /etc/init.d/mysql start
+sudo mysql_secure_installation
+netstat -lnp | grep 3306
 
 sudo mysql -h localhost -P 3306 -u root -p
 create user silyfish identified by 'zhangsan';
 drop user zhangsan@'%';
 
-
-sudo apt-get -y install mysql-server
-sudo /etc/init.d/mysql start
-sudo mysql_secure_installation
